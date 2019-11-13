@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus
+    volumes:
+      - "prom_data:/prometheus"
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+      - "./rules.yml:/etc/prometheus/rules.yml"
+    ports:
+      - "9090:9090"
+
+  ts_gen:
+      container_name: ts_gen
+      build: .
+      image: ts_gen:latest
+
+#  grafana:
+#      container_name: grafana
+#      image: grafana/grafana
+#      volumes:
+#        - "grafana_data:/var/lib/grafana"
+#      ports:
+#        - "3000:3000"
+
+volumes:
+  prom_data:
+  grafana_data:

@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 5s
+
+rule_files:
+  - rules.yml
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets:
+        - "localhost:9090"
+  - job_name: "ts_gen"
+    static_configs:
+      - targets:
+        - "ts_gen:9556"

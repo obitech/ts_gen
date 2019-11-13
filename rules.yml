@@ -1,0 +1,9 @@
+groups:
+  - name: seasonal
+    rules:
+      - record: job:seasonal:rate1m
+        expr: rate(ts_gen_seasonal_total[1m])
+  - name: seasonal_trend
+    rules:
+      - record: job:seasonal_trend:rate1m
+        expr: rate(ts_gen_seasonal_trend_total[1m])
